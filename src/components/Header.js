@@ -2,7 +2,7 @@ import { Box, Container, Heading, Stack, Text } from "@chakra-ui/react"
 
 export function Header() {
   return (
-    <Box> 
+    <Box margin='2rem auto'> 
       <Container as='Flex'size={{lg: 'lg'}} alignItems='center'>
         <Heading align='center' as='h1' size='2xl' noOfLines={1} marginBottom='1.5rem'>
           What items to store?

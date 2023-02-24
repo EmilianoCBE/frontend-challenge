@@ -3,6 +3,7 @@ import Image from 'next/image'
 import { TopBar } from '@/components/TopBar'
 import { Header } from '@/components/Header'
 import { Container } from '@chakra-ui/react'
+import { ProductCard } from '@/components/ProductCard'
 
 // import { Inter } from 'next/font/google'
 
@@ -22,6 +23,10 @@ export default function Home() {
       <main>
         <Container size={{lg: 'lg'}}>
           <Header />
+        </Container>
+
+        <Container size={{lg: 'lg'}}>
+          <ProductCard />
         </Container>
       </main>
     </>
