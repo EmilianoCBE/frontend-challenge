@@ -6,39 +6,23 @@ export const ItemsContext = createContext() //Solo se crea una vez: Singleton
 //Crear el Provider, para proveer el acceso al contexto
 // eslint-disable-next-line react/prop-types
 export function ItemsProvider({children}){
-  const [numBeds, setNumBeds] = useState(0)
-  const [numRefri, setNumRefri] = useState(0)
-  const [numFurniture, setNumFurniture] = useState(0)
-  const [numOvens, setNumOvens] = useState(0)
-  const [numSofas, setNumSofas] = useState(0)
-  const [numTvs, setNumTvs] = useState(0)
-  const [numDryers, setNumDryers] = useState(0)
-  const [numDinings, setNumDinings] = useState(0)
-  const [numDesk, setNumDesk] = useState(0)
-  const [numWardrobe, setNumWardrobe] = useState(0)
+  const [items, setItems] = useState({
+    bed: 0,
+    refrigerator: 0,
+    furniture: 0,
+    oven: 0,
+    sofa: 0,
+    tv: 0,
+    dryer: 0,
+    dining: 0,
+    desk: 0,
+    wardrobe: 0
+  })
 
   return (
     <ItemsContext.Provider value={{
-      numBeds,
-      setNumBeds,
-      numRefri,
-      setNumRefri,
-      numFurniture,
-      setNumFurniture,
-      numOvens,
-      setNumOvens,
-      numSofas,
-      setNumSofas,
-      numTvs,
-      setNumTvs,
-      numDryers,
-      setNumDryers,
-      numDinings,
-      setNumDinings,
-      numDesk,
-      setNumDesk,
-      numWardrobe,
-      setNumWardrobe
+      items,
+      setItems,
     }}>
       {children}
     </ItemsContext.Provider>

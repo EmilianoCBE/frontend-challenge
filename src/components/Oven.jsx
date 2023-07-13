@@ -7,18 +7,24 @@ import { ItemsContext } from '../context/items'
 import './Card.css'
 
 export const Oven = ({ icon, name }) => {
-  const { numOvens, setNumOvens} = useContext(ItemsContext)
+  const { items, setItems} = useContext(ItemsContext)
 
   const subQuantity = () => {
-    if(numOvens === 0){
+    if(items.oven === 0){
       return
     } else {
-      setNumOvens(numOvens - 1)
+      setItems(prevState => ({
+      ...prevState,
+      oven: items.oven - 1 
+    }))
     }
   }
 
   const sumQuantity = () => {
-    setNumOvens(numOvens + 1)
+    setItems(prevState => ({
+      ...prevState,
+      oven: items.oven + 1 
+    }))
   }
 
   return (
@@ -30,7 +36,7 @@ export const Oven = ({ icon, name }) => {
       <div className="quantity-button">
         <button onClick={subQuantity}> - </button>
         <div>
-          <p> {numOvens} </p>
+          <p> {items.oven} </p>
         </div>
         <button onClick={sumQuantity}> + </button>
       </div>

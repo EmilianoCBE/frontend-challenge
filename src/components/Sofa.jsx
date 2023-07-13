@@ -1,24 +1,28 @@
 /* eslint-disable react/prop-types */
-// import { useContext } from 'react'
-// import { ItemsContext } from '../context/items'
 import { useContext } from 'react'
 import { ItemsContext } from '../context/items'
 
 import './Card.css'
 
 export const Sofa = ({ icon, name }) => {
-  const { numSofas, setNumSofas} = useContext(ItemsContext)
+  const { items, setItems} = useContext(ItemsContext)
 
   const subQuantity = () => {
-    if(numSofas === 0){
+    if(items.sofa === 0){
       return
     } else {
-      setNumSofas(numSofas - 1)
+      setItems(prevState => ({
+      ...prevState,
+      sofa: items.sofa - 1 
+    }))
     }
   }
 
   const sumQuantity = () => {
-    setNumSofas(numSofas + 1)
+    setItems(prevState => ({
+      ...prevState,
+      sofa: items.sofa + 1 
+    }))
   }
 
   return (
@@ -30,7 +34,7 @@ export const Sofa = ({ icon, name }) => {
       <div className="quantity-button">
         <button onClick={subQuantity}> - </button>
         <div>
-          <p> {numSofas} </p>
+          <p> {items.sofa} </p>
         </div>
         <button onClick={sumQuantity}> + </button>
       </div>

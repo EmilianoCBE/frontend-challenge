@@ -3,53 +3,35 @@ import { ItemsContext } from '../context/items'
 import './Summary.css'
 
 export const Summary = () => {
-  const {
-    numBeds,
-      setNumBeds,
-      numRefri,
-      setNumRefri,
-      numFurniture,
-      setNumFurniture,
-      numOvens,
-      setNumOvens,
-      numSofas,
-      setNumSofas,
-      numTvs,
-      setNumTvs,
-      numDryers,
-      setNumDryers,
-      numDinings,
-      setNumDinings,
-      numDesk,
-      setNumDesk,
-      numWardrobe,
-      setNumWardrobe
-  } = useContext(ItemsContext)
-
-  const [totalItems, setTotalItems] = useState(0)
-  const [totalMeters, setTotalMeters] = useState(0)
+  const { items, setItems } = useContext(ItemsContext)
+  const [quantity, setQuantity] = useState({
+    totalItems: 0,
+    totalM: 0
+  })
 
   const calculate = () => {
-    setTotalItems(numBeds + numRefri + numOvens + numFurniture + numSofas + numTvs + numDryers + numDinings + numDesk + numWardrobe)
-    setTotalMeters((numBeds * 1.2) + numRefri + (numOvens * 0.6) + (numFurniture * 0.5) + (numSofas * 1.5) + (numTvs * 0.25) + (numDryers * 0.5) + (numDinings * 2) + (numDesk * 0.75) + (numWardrobe * 3.2))
+    setQuantity({
+      totalItems: items.bed + items.refrigerator + items.furniture + items.oven + items.sofa + items.tv + items.dryer + items.dining + items.desk + items.wardrobe,
+      totalM: (items.bed * 1.2) + (items.refrigerator) + (items.furniture * 0.5) + (items.oven * 0.6) + (items.sofa * 1.5) + (items.tv * 0.25) + (items.dryer * 0.5) + (items.dining * 2) + (items.desk * 0.75) + (items.wardrobe * 3.2),
+    })
   }
 
   const clear = () => {
-    setTotalItems(0)
-    setNumBeds(0)
-    setNumRefri(0)
-    setNumOvens(0)
-    setNumFurniture(0)
-    setNumSofas(0)
-    setNumTvs(0)
-    setNumDryers(0)
-    setNumDinings(0)
-    setNumDesk(0)
-    setNumWardrobe(0)
-    setTotalMeters(0)
+    setItems({
+      bed: 0,
+      refrigerator: 0,
+      furniture: 0,
+      oven: 0,
+      sofa: 0,
+      tv: 0,
+      dryer: 0,
+      dining: 0,
+      desk: 0,
+      wardrobe: 0
+    })
   }
 
-  let subtotal = totalMeters * 200
+  let subtotal = quantity.totalM * 200
   let iva = subtotal * 0.16
   let total = subtotal + iva
 
@@ -67,11 +49,11 @@ export const Summary = () => {
       <div className="summary-card">
         <div className="total">
           <p>Total Items</p>
-          <p>{totalItems}</p>
+          <p>{quantity.totalItems}</p>
         </div>
         <div className="total">
           <p>Total m²</p>
-          <p>{totalMeters}</p>
+          <p>{quantity.totalM}</p>
         </div>
         <div className="total">
           <p>Subtotal</p>
