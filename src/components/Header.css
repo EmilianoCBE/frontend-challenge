@@ -1,0 +1,50 @@
+body {
+  margin: 0;
+  min-width: 320px;
+  min-height: 100vh;
+}
+
+.header {
+  height: 100px;
+  background-color: #fd9255;
+  display: flex;
+  font-size: 12px;
+  align-items: center;
+  justify-content: space-evenly;
+}
+
+.logo {
+  width: 70px;
+  height: 71px;
+}
+
+.menu {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.menu a{
+  text-decoration: none;
+  color: #fff;
+}
+
+@media (min-width: 768px) {
+
+  .header {
+    height: 150px;
+    background-color: #fd9255;
+    font-size: 16px;
+    align-items: center;
+    justify-content: space-evenly;
+  }
+  
+  .logo {
+    width: 97px;
+    height: 96px;
+  }
+
+  .menu {
+    gap: 50px;
+  }
+}

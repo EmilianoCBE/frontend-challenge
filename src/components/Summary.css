@@ -1,0 +1,69 @@
+.summary {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 50px 15px 90px;
+}
+
+.summary-btns {
+  width: 100%;
+  display: flex;
+  padding: 0 15px;
+  justify-content: space-around;
+}
+
+.clear {
+  background-color: #fff;
+  width: 100px;
+  height: 60px;
+  border-radius: 5px;
+  border: 1px solid rgba(253, 146, 85, 1)
+}
+
+.calculate {
+  background-color: rgba(253, 146, 85, 1);
+  width: 100px;
+  height: 60px;
+  border-radius: 5px;
+  border: 1px solid rgba(253, 146, 85, 1)
+}
+
+.summary h1 {
+  padding-bottom: 30px;
+}
+
+.summary-card {
+  background-color: rgba(249, 249, 249, 1);
+  padding: 30px;
+  width: 200px;
+  height: auto;
+}
+
+.total {
+  display: flex;
+  justify-content: space-between
+}
+
+.total-bold {
+  display: flex;
+  justify-content: space-between;
+  font-weight: bold;
+}
+
+@media (min-width: 768px) {
+
+  .clear {
+    width: 200px;
+    height: 80px;
+  }
+  
+  .calculate {
+    width: 200px;
+    height: 80px;
+  }
+
+  .summary-card {
+    width: 400px;
+  }
+}
+

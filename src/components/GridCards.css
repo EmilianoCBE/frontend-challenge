@@ -1,0 +1,28 @@
+.grid-title {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding: 15px;
+}
+
+.grid-title p{
+  color: #666666;
+}
+
+.grid {
+  margin: 0;
+  display: grid;
+  width: 100%;
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  align-items: center;
+  justify-items: center;
+  grid-row-gap: 32px;
+  /* gap: 32px; */
+}
+
+@media (min-width: 768px) {
+  .grid-title {
+    padding: 0 30px 60px;
+  }
+}
